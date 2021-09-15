@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>NOMBRE</td>
+                <td>ENLACE</td>
+            </tr>
+        <% pk.map((item) => { %>
+            <tr>
+                <td><%=item.name%></td>
+                <td><a href="<%=item.url%>">Link</a></td>
+            </tr>
+        <% }); %>
+    </table>
+    </body>
+</html>
