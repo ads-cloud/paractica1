@@ -8,7 +8,6 @@ app.use(express.json())
 app.get('/',(req, resp)=>{
     axios.get(url)
     .then((data)=>{
-        data.data.results.map
         resp.status(200).render('index',{pk: data.data.results})
     })
     .catch(function (error) {
@@ -19,13 +18,13 @@ app.get('/:id',(req, resp)=>{
     axios.get(url + req.params.id)
     .then((data)=>{
         console.log("---------"+data.data.name);
-        resp.status(200).render('index',{pk: [data.data.name,data.data.url]})
+        resp.status(200).render('index',{pk: data.data.name})
     })
     .catch(function (error) {
         resp.status(400).render('index',{pk:error,[error] : error})
     })
 })
 
-http.createServer(app).listen(8001,()=>{
-    console.log("puerto 8001");
+http.createServer(app).listen(8002,()=>{
+    console.log("puerto 8002");
 })
